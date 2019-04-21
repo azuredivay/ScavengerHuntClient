@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent" android:layout_width="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout  android:background="#bf1f1f1f"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal">
+        <Button android:id="@+id/wclose" android:layout_alignParentRight="true"
+            android:textColor="#ffffff"
+            fontPath="fonts/segmdl2.ttf" android:background="#a6ff0000"
+            android:textSize="10sp" android:text="\ue8bb" android:layout_height="20dp" android:layout_width="30dp"  />
+    </RelativeLayout>
+    <WebView android:id="@+id/webpwv"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </WebView>
+    <RelativeLayout android:background="#bf232323"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout android:background="#bf1f1f1f"
+            android:layout_width="wrap_content" android:clickable="true"
+            android:focusable="true" android:id="@+id/edgec"
+            android:layout_height="30dp" android:orientation="horizontal">
+            <TextView fontPath="fonts/segoeuil.ttf" android:textSize="14sp"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content" android:layout_gravity="center"
+                android:paddingLeft="5dp"
+                android:layout_height="wrap_content" android:text="Get"
+                />
+            <ImageView android:layout_marginLeft="-8dp"
+                android:layout_width="40dp"
+                android:scaleType="centerInside"
+                android:layout_height="match_parent" android:src="@drawable/edge" android:padding="6dp"
+                />
+        </LinearLayout>
+
+        <TextView android:textSize="20sp" android:layout_gravity="center" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp" android:textColor="#ffffff" android:layout_centerVertical="true"
+            android:gravity="center" android:id="@+id/oibc"
+            android:layout_width="30dp" fontPath="fonts/segmdl2.ttf"
+            android:layout_height="wrap_content" android:text="\ue2b4" />
+
+    </RelativeLayout>
+
+</LinearLayout>

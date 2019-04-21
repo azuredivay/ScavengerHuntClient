@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/contain"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <RelativeLayout android:background="#e5e5e5" android:elevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+        <TextView android:layout_margin="5dp" android:id="@+id/homebutt"
+            android:layout_width="wrap_content" android:textSize="18sp"
+            android:layout_height="match_parent" android:gravity="center"
+            fontPath="fonts/segoeuil.ttf" android:text="Home" android:textColor="#000000"
+            />
+        <TextView android:layout_margin="5dp" android:layout_toRightOf="@id/homebutt"
+            android:clickable="true" android:focusable="true"
+            android:id="@+id/popularbutt" android:textColor="#000000"
+            android:layout_width="wrap_content" android:textSize="18sp"
+            android:layout_height="match_parent" android:gravity="center"
+            fontPath="fonts/segoeui.ttf" android:text="Game"
+            />
+        <TextView android:layout_margin="5dp" android:layout_toRightOf="@id/popularbutt"
+            android:clickable="true" android:focusable="true"
+            android:id="@+id/discover" android:textColor="#000000"
+            android:layout_width="wrap_content" android:textSize="18sp"
+            android:layout_height="match_parent" android:gravity="center"
+            fontPath="fonts/segoeuil.ttf" android:text="Help"
+            />
+
+    </RelativeLayout>
+    <GridLayout android:background="#efefef" android:id="@+id/mainlayout"
+        android:layout_width="match_parent"
+        android:rowCount="2"
+        android:layout_height="match_parent"
+        android:layout_weight="3">
+        <fragment android:layout_row="0" android:layout_column="0"
+            android:id="@+id/gamemap_fragment"
+            android:name="com.tomtom.online.sdk.map.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <RelativeLayout android:layout_gravity="end|bottom" android:layout_marginTop="-160dp" android:layout_row="1" android:layout_column="0" android:layout_width="match_parent" android:layout_height="400dp">
+            <!-- listview here? -->
+            <ListView android:background="#BFe5e5e5" android:id="@+id/ClueList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+        </RelativeLayout>
+
+    </GridLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="#e5e5e5" android:layout_gravity="bottom">
+
+        <Button android:clickable="true"
+            android:focusable="true" android:layout_toLeftOf="@+id/middlebutt"
+            android:textSize="18sp" android:textColor="#000000" fontPath="fonts/segmdl2.ttf"
+            android:text="\ueca7" android:onClick="MainClickHandler"
+            android:layout_width="50dp"
+            android:tag="search"
+            android:layout_height="wrap_content" android:background="#e5e5e5"/>
+        <Button android:clickable="true" android:focusable="true"  android:id="@+id/middlebutt"
+            android:textSize="18sp" android:textColor="#ffffff" fontPath="fonts/segmdl2.ttf"
+            android:text="\uecad" android:visibility="gone"
+            android:layout_toLeftOf="@+id/accbutton"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" android:background="#1f1f1f"/>
+
+
+        <Button android:clickable="true" android:focusable="true"
+            android:id="@+id/accbutton" android:layout_toLeftOf="@id/settingsbutton"
+            android:textSize="18sp" android:textColor="#000000" fontPath="fonts/segmdl2.ttf"
+            android:text="\ue81b"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" android:background="#e5e5e5"/>
+
+        <Button android:clickable="true" android:focusable="true"
+            android:id="@+id/settingsbutton" android:layout_toLeftOf="@id/contextbutton"
+            android:textSize="18sp" android:textColor="#000000" fontPath="fonts/segmdl2.ttf"
+            android:text="\ue713"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" android:background="#e5e5e5"/>
+
+        <Button android:clickable="true" android:focusable="true"
+            android:id="@+id/contextbutton" android:layout_alignParentRight="true"
+            android:textSize="20sp" android:textColor="#000000" fontPath="fonts/segmdl2.ttf"
+            android:text="\ue10c"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" android:background="#e5e5e5"/>
+    </RelativeLayout>
+</LinearLayout>
