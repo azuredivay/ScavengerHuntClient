@@ -41,14 +41,17 @@ public class maingame extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maingame);
         ListView CList = this.findViewById(R.id.ClueList);
-
-        Game.MainGame.Questions.add(new QRiddle("1","Name a Functional Language that starts with the letter 'F'?","hint here","F#",false));
+        Game.GetGame().AddQuestion(new QRiddle("1","Name a Functional Language that starts with the letter 'F'?","hint here","F#",false));
+        Game.GetGame().AddQuestion(new QRiddle("1","Name a Functional Language that starts with the letter 'F'?","hint here","F#",true));
+        Game.GetGame().AddQuestion(new QRiddle("1","Name a Functional Language that starts with the letter 'F'?","hint here","F#",false));
+        Game.GetGame().AddQuestion(new QRiddle("1","Name a Functional Language that starts with the letter 'F'?","hint here","F#",false));
+        /*Game.MainGame.Questions.add(new QRiddle("1","Name a Functional Language that starts with the letter 'F'?","hint here","F#",false));
         Game.MainGame.Questions.add(new QRiddle("2","What snake can you code with?","hint here","Python",false));
         Game.MainGame.Questions.add(new QRiddle("3","Go to the building that defies gravity?","hint here","",true)); //overload with location data later
         Game.MainGame.Questions.add(new QRiddle("4","Name a Language that no one should like?","hint here","JavaScript",false));
-        Game.MainGame.Questions.add(new QRiddle("5","Go to the building that defies gravity?","hint here","",true)); //overload with location data later
+        Game.MainGame.Questions.add(new QRiddle("5","Go to the building that defies gravity?","hint here","",true)); //overload with location data later*/
 
-        QueueAdapter customAdapter = new QueueAdapter(this, R.layout.queue_item, Game.MainGame.Questions);
+        QueueAdapter customAdapter = new QueueAdapter(this, R.layout.queue_item, Game.GetGame().GetQuestions());
 
         CList .setAdapter(customAdapter);
 

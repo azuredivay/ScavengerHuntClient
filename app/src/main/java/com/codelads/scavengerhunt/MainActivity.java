@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 
 import com.codelads.scavengerhunt.Models.Game;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
+    View pview;
     public void MainClickHandler(View v)
     {
         try
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity
                     break;
                 case "createg":
                     PopupWindow hrv2 = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.creategamepopup,null),5,this);
-                    View pview = hrv2.getContentView();
+                    pview = hrv2.getContentView();
                     MapFragment  mapFragment = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.map_fragment);
                     mapFragment.getAsyncMap(onMapReadyCallback);
                     break;
@@ -63,16 +64,29 @@ public class MainActivity extends AppCompatActivity
                     break;
 
                 case "creategame":
-                    Game game = new Game();
-                    game.Desc = "bruh";
-                    game.ID = 12;
-                    game.Name = "GG";
-                    if(Game.MainGame==null)
+                    try
                     {
-                        Game.MainGame = game; //else throw exception?
-                        new Player(1);
-                        startActivity(new Intent(this,maingame.class));
+                        new Game(((EditText)(pview.findViewById(R.id.gameNameTB))).getText().toString(),12,1,((EditText)(pview.findViewById(R.id.gameDescTB))).getText().toString());
+
                     }
+                    catch (Exception ee)
+                    {
+                        ee.printStackTrace(); //cant find edit texts
+                    }
+                    startActivity(new Intent(this,maingame.class));
+                    if(Game.GetGame()!=null)
+                    {
+
+                    }
+                    //game.Desc = ((EditText)(findViewById(R.id.gameDescTB))).getText().toString();
+                    //game.ID = 12;
+                    //game.Name = ((EditText)(findViewById(R.id.gameNameTB))).getText().toString();
+                    //if(Game.MainGame==null)
+                    //{
+                    //    Game.MainGame = game; //else throw exception?
+                    //    new Player(1);
+                    //    startActivity(new Intent(this,maingame.class));
+                    //}
                     break;
             }
         }
