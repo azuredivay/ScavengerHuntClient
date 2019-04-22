@@ -3,7 +3,7 @@
   <!-- Your product logo - 144dp color version of your app icon -->
   <item>
     <bitmap
-      android:src="@drawable/primarylogo2"
+      android:src="@drawable/primarylogo"
       android:gravity="center"/>
   </item>
 </layer-list>

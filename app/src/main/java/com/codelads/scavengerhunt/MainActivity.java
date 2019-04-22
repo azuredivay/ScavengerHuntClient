@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import com.codelads.scavengerhunt.Models.Game;
+import com.codelads.scavengerhunt.Models.GameLite;
 import com.codelads.scavengerhunt.Models.Player;
 import com.codelads.scavengerhunt.Services.OfflineHelper;
 import com.tomtom.online.sdk.location.Locations;
@@ -23,6 +25,11 @@ import com.tomtom.online.sdk.map.OnMapReadyCallback;
 import com.tomtom.online.sdk.map.TomtomMap;
 import com.tomtom.online.sdk.map.model.MapTilesType;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.microedition.khronos.opengles.GL;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static com.tomtom.online.sdk.map.MapConstants.DEFAULT_ZOOM_LEVEL;
@@ -30,6 +37,7 @@ import static com.tomtom.online.sdk.map.MapConstants.DEFAULT_ZOOM_LEVEL;
 public class MainActivity extends AppCompatActivity
 {
     TomtomMap mmap;
+    static Context mc;
     @Override protected void attachBaseContext(Context newBase)
     {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -40,7 +48,23 @@ public class MainActivity extends AppCompatActivity
         setTheme(R.style.maintheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mc = this;
     }
+
+    void SetGameList(View v)
+    {
+        PopupWindow hrv = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.joingamepopup,null),0,this);
+        //hrv.setLayoutManager(new LinearLayoutManager(this));
+        View mainView = hrv.getContentView();
+        List<GameLite> glist = new ArrayList<>();
+        glist.add(new GameLite(1,"U Game"));
+        glist.add(new GameLite(2,"U I Game"));
+
+        GameListAdapter customAdapter = new GameListAdapter(this, R.layout.gameitem, glist); //change null to get list of active games from server
+        ListView GList = mainView.findViewById(R.id.GameList);
+        GList.setAdapter(customAdapter);
+    }
+
     View pview;
     public void MainClickHandler(View v)
     {
@@ -50,8 +74,7 @@ public class MainActivity extends AppCompatActivity
             switch (v.getTag().toString())
             {
                 case "joing":
-                    RecyclerView hrv = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.joingamepopup,null),0,this).getContentView().findViewById(R.id.sboxrv);
-                    hrv.setLayoutManager(new LinearLayoutManager(this));
+                    SetGameList(v);
                     break;
                 case "createg":
                     PopupWindow hrv2 = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.creategamepopup,null),5,this);
@@ -74,19 +97,6 @@ public class MainActivity extends AppCompatActivity
                         ee.printStackTrace(); //cant find edit texts
                     }
                     startActivity(new Intent(this,maingame.class));
-                    if(Game.GetGame()!=null)
-                    {
-
-                    }
-                    //game.Desc = ((EditText)(findViewById(R.id.gameDescTB))).getText().toString();
-                    //game.ID = 12;
-                    //game.Name = ((EditText)(findViewById(R.id.gameNameTB))).getText().toString();
-                    //if(Game.MainGame==null)
-                    //{
-                    //    Game.MainGame = game; //else throw exception?
-                    //    new Player(1);
-                    //    startActivity(new Intent(this,maingame.class));
-                    //}
                     break;
             }
         }
