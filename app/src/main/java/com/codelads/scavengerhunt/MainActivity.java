@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     View pview;
+    PopupWindow hrv2;
     public void MainClickHandler(View v)
     {
         try
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity
                     SetGameList(v);
                     break;
                 case "createg":
-                    PopupWindow hrv2 = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.creategamepopup,null),5,this);
+                    hrv2 = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.creategamepopup,null),5,this);
                     pview = hrv2.getContentView();
                     MapFragment  mapFragment = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.map_fragment);
                     mapFragment.getAsyncMap(onMapReadyCallback);
@@ -98,6 +99,20 @@ public class MainActivity extends AppCompatActivity
                     {
                         ee.printStackTrace(); //cant find edit texts
                     }
+                    try
+                    {
+                        hrv2.dismiss();
+                        PopupWindow hrv3 = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.add_qr_popup,null),5,mc);
+
+                    }
+                    catch (Exception ee)
+                    {
+                        ee.printStackTrace(); //cant find edit texts
+                    }
+                    //startActivity(new Intent(this,maingame.class));
+
+                    break;
+                case "skip":
                     startActivity(new Intent(this,maingame.class));
                     break;
             }

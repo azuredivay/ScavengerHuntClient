@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E6e5e5e5"
+    >
+    <LinearLayout android:elevation="30dp" android:background="#e5e5e5"
+        android:id="@+id/innerparentttp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center" android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="&#xF45E;" android:textSize="22sp"
+            fontPath="fonts/segmdl2.ttf" android:padding="5dp" />
+        <TextView android:padding="5dp" android:textSize="20sp" android:textColor="#000000"
+            android:text="Riddle me this"
+            fontPath="fonts/segoeui.ttf"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/form2" android:orientation="vertical"
+        android:layout_below="@id/innerparentttp2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView
+                android:layout_gravity="center" android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="&#xE844;" android:textSize="18sp"
+                fontPath="fonts/segmdl2.ttf" android:padding="5dp" />
+            <EditText android:hint="Enter question here" android:textColor="#000000" android:textColorHint="#000000"
+                android:layout_width="wrap_content"  fontPath="fonts/segoeuil.ttf"
+                android:layout_height="wrap_content" android:id="@+id/QName" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView
+                android:layout_gravity="center" android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="&#xE783;" android:textSize="18sp"
+                fontPath="fonts/segmdl2.ttf" android:padding="5dp" />
+            <EditText android:hint="Hint here" android:textColor="#000000" android:textColorHint="#000000"
+                android:layout_width="wrap_content" fontPath="fonts/segoeuil.ttf"
+                android:layout_height="wrap_content" android:id="@+id/QHint" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView
+                android:layout_gravity="center" android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="&#xE10B;" android:textSize="18sp"
+                fontPath="fonts/segmdl2.ttf" android:padding="5dp" />
+            <EditText android:hint="Answer here" android:textColor="#000000" android:textColorHint="#000000"
+                android:layout_width="wrap_content" fontPath="fonts/segoeuil.ttf"
+                android:layout_height="wrap_content" android:id="@+id/QA" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView
+                android:layout_gravity="center" android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="&#xE826;" android:textSize="18sp"
+                fontPath="fonts/segmdl2.ttf" android:padding="5dp" />
+            <CheckBox android:text="Is Location Based?" android:textColor="#000000" android:buttonTint="#232323"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:checked="false" />
+        </LinearLayout>
+        <LinearLayout android:layout_weight="1" android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:layout_marginLeft="1dp"
+                android:layout_height="wrap_content" android:elevation="20dp"
+                android:layout_width="wrap_content"
+                android:background="#ab274f"
+                android:layout_gravity="center"
+                android:textSize="16sp" android:onClick="MainClickHandler"
+                android:textAllCaps="false" android:tag="creategame"
+                android:textColor="#ffffff" fontPath="fonts/segoeuil.ttf" android:text="Add"
+                android:id="@+id/AddQ">
+            </Button>
+            <Button android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content" android:elevation="20dp"
+                android:layout_width="wrap_content"
+                android:background="#ab274f"
+                android:tag="skip"
+                android:textSize="16sp" android:onClick="MainClickHandler"
+                android:textAllCaps="false"
+                android:textColor="#ffffff" fontPath="fonts/segoeuil.ttf" android:text="Skip"
+                android:id="@+id/Skip">
+            </Button>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
