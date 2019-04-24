@@ -59,9 +59,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" android:background="#e5e5e5" android:layout_gravity="bottom">
 
-        <TextView android:id="@+id/score" android:text="0" android:textColor="#000000" android:gravity="center"
-            android:layout_width="50dp" android:textSize="18sp"
-            android:layout_height="50dp" android:layout_alignParentLeft="true" />
+
+        <LinearLayout android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content" android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="50dp" android:gravity="center" android:textColor="#551a8b" fontPath="fonts/segmdl2.ttf"
+                android:text="&#xF159;" android:textSize="18sp" />
+            <TextView android:id="@+id/score" android:text="0" android:textColor="#000000" android:gravity="left"
+                android:layout_width="50dp" android:textSize="18sp"
+                android:layout_height="50dp" />
+        </LinearLayout>
+
 
         <Button android:clickable="true"
             android:focusable="true" android:layout_toLeftOf="@+id/middlebutt"

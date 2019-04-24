@@ -17,6 +17,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.codelads.scavengerhunt.R;
+import com.google.android.gms.maps.model.LatLng;
 
 public class OfflineHelper
 {
@@ -91,5 +92,11 @@ public class OfflineHelper
         cb.setOnClickListener(v1-> pw.dismiss());
         ob.setOnClickListener(v1-> c.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(popweb.getUrl()))));
         ec.setOnClickListener(v1-> c.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.microsoft.emmx"))));
+    }
+
+    public static boolean IsWithinGeoFence()
+    {
+        //use self location? or take params?
+        return false;
     }
 }
