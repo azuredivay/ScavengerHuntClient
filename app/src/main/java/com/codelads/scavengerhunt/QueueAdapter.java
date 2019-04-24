@@ -71,11 +71,14 @@ public class QueueAdapter extends ArrayAdapter<QRiddle>
            Button check = MV.findViewById(R.id.check);
            ques.setText(p.GetQuestion());
            hint.setText(p.GetHint());
+           TextView cor = MV.findViewById(R.id.correct);
            check.setOnClickListener(v1 ->
            {
                if(p.CheckAnswer(ans.getText().toString()))
                {
+                   cor.setVisibility(View.VISIBLE);
                    Player.CurrentPlayer.AddScore();
+                   maingame.score.setText(Player.CurrentPlayer.GetScore());
                }
            });
         });

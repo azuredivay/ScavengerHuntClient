@@ -6,7 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical">
     <RelativeLayout android:background="#e5e5e5" android:elevation="5dp"
         android:layout_width="match_parent"
@@ -39,9 +38,9 @@
         android:rowCount="2"
         android:layout_height="match_parent"
         android:layout_weight="3">
-        <fragment android:layout_row="0" android:layout_column="0"
-            android:id="@+id/gamemap_fragment"
-            android:name="com.tomtom.online.sdk.map.MapFragment"
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <RelativeLayout android:layout_gravity="end|bottom" android:layout_marginTop="-160dp" android:layout_row="1" android:layout_column="0" android:layout_width="match_parent" android:layout_height="400dp">
@@ -59,6 +58,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" android:background="#e5e5e5" android:layout_gravity="bottom">
+
+        <TextView android:id="@+id/score" android:text="0" android:textColor="#000000" android:gravity="center"
+            android:layout_width="50dp" android:textSize="18sp"
+            android:layout_height="50dp" android:layout_alignParentLeft="true" />
 
         <Button android:clickable="true"
             android:focusable="true" android:layout_toLeftOf="@+id/middlebutt"

@@ -9,29 +9,31 @@ import android.telephony.TelephonyManager;
 public class Player
 {
     private String PID;
+    private String PName;
     private int Score = 0;
     public static Player CurrentPlayer = null;
 
     public Player(){}
 
-    public Player(Context context)
+    public Player(Context context, String _pname)
     {
         if(CurrentPlayer==null)
         {
             CurrentPlayer = new Player();
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            /*TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
             {
-                return;
+                //return;
             }
-            String imei = telephonyManager.getDeviceId();
-            PID = imei;
+            String imei = telephonyManager.getDeviceId();*/
+            PID = "1";
+            PName = _pname;
         }
     }
 
     public void AddScore()
     {
-        Score++;
+        Score+=5;
     }
 
     public String GetScore()

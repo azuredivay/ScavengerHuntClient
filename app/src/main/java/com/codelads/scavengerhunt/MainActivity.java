@@ -17,6 +17,8 @@ import android.widget.PopupWindow;
 import com.codelads.scavengerhunt.Models.Game;
 import com.codelads.scavengerhunt.Models.GameLite;
 import com.codelads.scavengerhunt.Models.Player;
+import com.codelads.scavengerhunt.Models.PlayerLite;
+import com.codelads.scavengerhunt.Services.MockServer;
 import com.codelads.scavengerhunt.Services.OfflineHelper;
 import com.tomtom.online.sdk.location.Locations;
 import com.tomtom.online.sdk.map.MapConstants;
@@ -56,11 +58,7 @@ public class MainActivity extends AppCompatActivity
         PopupWindow hrv = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.joingamepopup,null),0,this);
         //hrv.setLayoutManager(new LinearLayoutManager(this));
         View mainView = hrv.getContentView();
-        List<GameLite> glist = new ArrayList<>();
-        glist.add(new GameLite(1,"U Game"));
-        glist.add(new GameLite(2,"U I Game"));
-
-        GameListAdapter customAdapter = new GameListAdapter(this, R.layout.gameitem, glist); //change null to get list of active games from server
+        GameListAdapter customAdapter = new GameListAdapter(this, R.layout.gameitem, MockServer.GetCurrentlyRunningGames()); //change null to get list of active games from server
         ListView GList = mainView.findViewById(R.id.GameList);
         GList.setAdapter(customAdapter);
     }
@@ -83,7 +81,11 @@ public class MainActivity extends AppCompatActivity
                     mapFragment.getAsyncMap(onMapReadyCallback);
                     break;
                 case "search":
-                    OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.searchpopup,null),1,this).getContentView().findViewById(R.id.sboxrv);
+                    ListView lv = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.searchpopup,null),1,this).getContentView().findViewById(R.id.sboxlv);
+                    WinnerAdapter customAdapter = new WinnerAdapter(this, R.layout.leaderboard_item, MockServer.GetLeaderBoard()); //change null to get list of active games from server
+                    lv.setAdapter(customAdapter);
+
+
                     break;
 
                 case "creategame":
@@ -120,7 +122,7 @@ public class MainActivity extends AppCompatActivity
             mmap.getUiSettings().setMapTilesType(MapTilesType.VECTOR);
             mmap.setGeopoliticalView("IN");
             mmap.centerOnMyLocationWithNorthUp();
-            mmap.centerOn(Locations.AMSTERDAM.getLatitude(), Locations.AMSTERDAM.getLongitude(),DEFAULT_ZOOM_LEVEL, MapConstants.ORIENTATION_NORTH);
+            mmap.centerOn(41.872723, -87.649027,DEFAULT_ZOOM_LEVEL, MapConstants.ORIENTATION_NORTH);
         }
     };
 }

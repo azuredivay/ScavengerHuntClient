@@ -42,6 +42,9 @@
         <Button android:layout_gravity="center" android:id="@+id/check" android:text="\ue8fb"
             android:layout_width="wrap_content" fontPath="fonts/segmdl2.ttf"
             android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/correct" android:text="That was correct :D" android:textColor="#013220" android:visibility="invisible" />
     </LinearLayout>
 
 </RelativeLayout>
