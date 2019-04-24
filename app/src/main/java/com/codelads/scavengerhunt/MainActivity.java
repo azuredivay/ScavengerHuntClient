@@ -82,9 +82,16 @@ public class MainActivity extends AppCompatActivity
                     mapFragment.getAsyncMap(onMapReadyCallback);
                     break;
                 case "search":
-                    ListView lv = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.searchpopup,null),1,this).getContentView().findViewById(R.id.sboxlv);
-                    WinnerAdapter customAdapter = new WinnerAdapter(this, R.layout.leaderboard_item, MockServer.GetLeaderBoard()); //change null to get list of active games from server
-                    lv.setAdapter(customAdapter);
+
+                    try{
+                        ListView lv = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.searchpopup,null),1,this).getContentView().findViewById(R.id.sboxlv);
+                        WinnerAdapter customAdapter = new WinnerAdapter(this, R.layout.leaderboard_item, MockServer.GetLeaderBoard()); //change null to get list of active games from server
+                        lv.setAdapter(customAdapter);
+                    }
+                    catch (Exception rt)
+                    {
+                        rt.printStackTrace();
+                    }
 
 
                     break;
@@ -93,7 +100,6 @@ public class MainActivity extends AppCompatActivity
                     try
                     {
                         new Game(((EditText)(pview.findViewById(R.id.gameNameTB))).getText().toString(),12,1,((EditText)(pview.findViewById(R.id.gameDescTB))).getText().toString());
-
                     }
                     catch (Exception ee)
                     {
@@ -102,16 +108,15 @@ public class MainActivity extends AppCompatActivity
                     try
                     {
                         hrv2.dismiss();
-                        PopupWindow hrv3 = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.add_qr_popup,null),5,mc);
-
+                        PopupWindow hrv3 = OfflineHelper.handlePopup(v, LayoutInflater.from(this).inflate(R.layout.add_qr_popup,null),0,mc);
                     }
                     catch (Exception ee)
                     {
                         ee.printStackTrace(); //cant find edit texts
                     }
                     //startActivity(new Intent(this,maingame.class));
-
                     break;
+
                 case "skip":
                     startActivity(new Intent(this,maingame.class));
                     break;

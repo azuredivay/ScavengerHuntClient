@@ -23,9 +23,9 @@ public class MockServer
     {
         List<PlayerLite> players = new ArrayList<>();
         players.add(new PlayerLite(12,"Adam"));
-        players.add(new PlayerLite(12,"Sullivan"));
-        players.add(new PlayerLite(12,"Phantom"));
-        players.add(new PlayerLite(12,"No One"));
+        players.add(new PlayerLite(7,"Sullivan"));
+        players.add(new PlayerLite(5,"Phantom"));
+        players.add(new PlayerLite(1,"The One"));
         return players;
     }
 
@@ -38,9 +38,10 @@ public class MockServer
     {
         List<QRiddle> riddles = new ArrayList<>();
         riddles.add(new QRiddle("1","The building with metal cubes?","They are silver, and in clusters","ERF",true));
-        riddles.add(new QRiddle("1","This coding language can Seem sharp","See shh?","C#",false));
-        riddles.add(new QRiddle("1","The BAT cave","nananananananana- BATMAN!","TBH",true));
-        riddles.add(new QRiddle("1","One half is simple, the other complex, but connected by a bridge","Look both ways while crossing!","SES",true));
+        riddles.add(new QRiddle("5","The building where design patterns kill us?","4-4-0-?","C4",true));
+        riddles.add(new QRiddle("2","This coding language can Seem sharp","See shh?","C#",false));
+        riddles.add(new QRiddle("3","The BAT cave","nananananananana- BATMAN!","TBH",true));
+        riddles.add(new QRiddle("4","One half is simple, the other complex, but connected by a bridge","Look both ways while crossing!","SES",true));
         return riddles;
     }
 }

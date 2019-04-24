@@ -43,8 +43,21 @@ public class WinnerAdapter extends ArrayAdapter<PlayerLite>
 
         if (p != null)
         {
+
             TextView tt1 =  v.findViewById(R.id.pname);
             tt1.setText(p.GetPlayerName());
+
+            try
+            {
+                TextView tt2 = v.findViewById(R.id.pscore);
+
+
+                tt2.setText(p.GetScore());
+            }
+            catch (Exception rr)
+            {
+                rr.printStackTrace();
+            }
 
             //TextView locIcon = v.findViewById(R.id.loc);
         }

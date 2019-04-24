@@ -39,15 +39,19 @@
         android:rowCount="2"
         android:layout_height="match_parent"
         android:layout_weight="3">
+        <ImageView android:layout_row="0" android:layout_column="0" android:src="@drawable/back1"
+            android:layout_height="match_parent" android:layout_width="match_parent" android:scaleType="centerCrop"
+            />
         <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
             android:layout_row="0" android:layout_column="0">
 
             <TextView android:id="@+id/greeting" fontPath="fonts/segoeuil.ttf"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Scavenger Hunt." android:textColor="#31BBBF" android:textSize="60sp" />
+                android:layout_height="wrap_content" android:text="Scavenger Hunt." android:textColor="#232323"
+                android:textSize="60sp" />
             <TextView android:id="@+id/greeting2" android:layout_below="@id/greeting"
                 android:layout_width="wrap_content" fontPath="fonts/segoeuil.ttf"
-                android:layout_height="wrap_content" android:text="Welcomes you." android:textColor="#db7093"
+                android:layout_height="wrap_content" android:text="Welcomes you." android:textColor="#ffffff"
                 android:textSize="50sp" />
             <LinearLayout android:layout_alignParentBottom="true" android:id="@+id/buttonPanel"
                 android:layout_width="match_parent" android:layout_below="@id/greeting2"
@@ -73,40 +77,6 @@
                 </Button>
             </LinearLayout>
         </RelativeLayout>
-
-        <LinearLayout android:layout_marginTop="-100dp"
-            android:layout_row="1" android:layout_column="0"
-            android:paddingBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:orientation="vertical">
-
-            <android.support.design.widget.CoordinatorLayout android:elevation="20dp"
-                android:layout_height="wrap_content" android:layout_width="wrap_content"
-                xmlns:android="http://schemas.android.com/apk/res/android">
-                <android.support.design.widget.FloatingActionButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="15dp"
-                    android:id="@+id/b1"
-                    android:tag="emergency"
-                    android:onClick="MainClickHandler"
-                    android:clickable="true" android:focusable="true"
-
-                    app:backgroundTint="#e5e5e5"
-                    />
-                <TextView android:elevation="10dp"
-                    app:layout_anchor="@id/b1"
-                    android:layout_height="wrap_content" android:layout_width="wrap_content"
-                    app:layout_anchorGravity="center"
-                    android:textSize="22sp"
-                    android:textColor="#FF0000" fontPath="fonts/segmdl2.ttf"
-                    android:text="\uea18"  />
-            </android.support.design.widget.CoordinatorLayout>
-        </LinearLayout>
 
     </GridLayout>
 
