@@ -87,6 +87,8 @@ public class QueueAdapter extends ArrayAdapter<QRiddle>
                        cor.setVisibility(View.VISIBLE);
                        Player.CurrentPlayer.AddScore();
                        maingame.score.setText(Player.CurrentPlayer.GetScore());
+                       p.MarkAnswered();
+                       remove(p);
                    }
                    else
                    {
@@ -102,6 +104,8 @@ public class QueueAdapter extends ArrayAdapter<QRiddle>
                    cor.setVisibility(View.VISIBLE);
                    Player.CurrentPlayer.AddScore();
                    maingame.score.setText(Player.CurrentPlayer.GetScore());
+                   p.MarkAnswered();
+                   remove(p);
                }
                else
                {

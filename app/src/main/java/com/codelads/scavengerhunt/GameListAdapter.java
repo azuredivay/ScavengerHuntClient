@@ -28,8 +28,7 @@ public class GameListAdapter extends ArrayAdapter<GameLite>
         this.mContext = context;
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent)
+    @Override public View getView(int position, View convertView, ViewGroup parent)
     {
 
         View v = convertView;

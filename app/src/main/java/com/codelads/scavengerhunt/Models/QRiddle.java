@@ -7,6 +7,7 @@ public class QRiddle
     private String Hint;
     private String Answer;
     private boolean LocBased = false;
+    private boolean IsAnswered = false;
 
     public QRiddle(String qid,String q, String h, String a, boolean loc)
     {
@@ -35,5 +36,15 @@ public class QRiddle
     public boolean IsLocBased()
     {
         return LocBased; //if true, change textview value in adapter
+    }
+
+    public void MarkAnswered()
+    {
+        IsAnswered = true;
+    }
+
+    public boolean IsAnswered()
+    {
+        return IsAnswered;
     }
 }

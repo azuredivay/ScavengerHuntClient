@@ -25,7 +25,7 @@ public class OfflineHelper
     {
         PopupWindow pw = null;
 
-        float dim = 0.8f;
+        float dim = 0.7f;
         switch (type) //0 is mid, 1 is side
         {
             case 0:
